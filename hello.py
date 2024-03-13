@@ -1,5 +1,17 @@
 from flask import Flask, render_template
+import sqlite3
+
+
+# Service Functions
+
 app = Flask(__name__)
+
+@app.route('/create_database_if_not_exists', methods=['POST'])
+def create_database_if_not_exists():
+    print("Hello this is a test")
+    #conn = sqlite3.connect('kaplan_modules.db')
+    #return conn
+    return "Hello"
 
 @app.route('/')
 def index():

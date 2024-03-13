@@ -29,6 +29,8 @@
     <!-- Template Main CSS File -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- =======================================================
   * Template Name: Personal
   * Updated: Mar 13 2024 with Bootstrap v5.3.3
@@ -48,6 +50,28 @@
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
             <h2>Shape your <span>future</span>, shape the <span>world</span></h2>
+            <button onclick="testDatabase()" type="submit">Test</button>
+
+            <script>
+
+                function testDatabase(){
+                    console.log("Testing database");
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/create_database_if_not_exists",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            alert("Success")
+                        },
+                        error: function (data) {
+                            alert(JSON.stringify(data))
+                            alert("Error while inserting data");
+                        }
+                    })
+                }
+
+            </script>
 
             <nav id="navbar" class="navbar">
                 <ul>
