@@ -23,18 +23,19 @@ class Channels(db.Model):
     def __repr__(self):
         return f'<Channel: {self.name}>'
 
-# @app.route('/create_database_if_not_exists', methods=['POST'])
-# def create_database_if_not_exists():
-#     print("Hello this is a test")
-#     conn = sqlite3.connect('kaplan_modules.db')
-#     #return conn
-#     conn.close()
 
-#     response = {
-#         "test": "Bananas"
-#     }
+@app.route('/get_all_users', methods=['POST'])
+def get_all_users():
+    print("Hello there we are getting all the users")
 
-#     return response
+    users = Users.query.all()
+
+    users_list = [{'id': user.id, 'name': user.name} for user in users]
+
+    print(users_list)
+
+    return users_list
+
 
 @app.route('/')
 def index():
