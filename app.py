@@ -51,7 +51,13 @@ def get_all_modules():
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+
+    modules = Modules.query.all()
+    modules_list = [{'id': module.id, 'name': module.name} for module in modules]
+
+    print(modules_list)
+
+    return render_template("index.html", modules = Modules.query.all())
 
 @app.route('/About/<name>')
 def about_name(name):
