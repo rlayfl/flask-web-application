@@ -9,32 +9,44 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 
-class Users(db.Model):
+class ModuleEnrolments(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(20))
+    userAccountID = db.Column(db.Integer)
+    ModuleID = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f'<Module Enrolment: {self.id}>'
+
+class UserAccounts(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String())
 
     def __repr__(self):
         return f'<User: {self.name}>'
 
-class Channels(db.Model):
+class Modules(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(20))
+    name = db.Column(db.String())
+    code = db.Column(db.String())
+    startDate = db.Column(db.DateTime())
+    endDate = db.Column(db.DateTime())
 
     def __repr__(self):
-        return f'<Channel: {self.name}>'
+        return f'<Module: {self.name}>'
 
 
-@app.route('/get_all_users', methods=['POST'])
-def get_all_users():
+
+
+@app.route('/get_all_modules', methods=['POST'])
+def get_all_modules():
     print("Hello there we are getting all the users")
 
-    users = Users.query.all()
+    modules = Modules.query.all()
+    modules_list = [{'id': module.id, 'name': module.name} for module in modules]
 
-    users_list = [{'id': user.id, 'name': user.name} for user in users]
+    print(modules_list)
 
-    print(users_list)
-
-    return users_list
+    return modules_list
 
 
 @app.route('/')
