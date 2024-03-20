@@ -40,7 +40,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     
-     # Get tables as objects to be worked with
+    # Get tables as objects to be worked with
 
     module_enrolments_table = sa.Table('module_enrolments', sa.MetaData(), autoload_with=op.get_bind())
     modules_table = sa.Table('modules', sa.MetaData(), autoload_with=op.get_bind())

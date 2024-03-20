@@ -28,6 +28,7 @@ class Modules(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String())
     code = db.Column(db.String())
+    description = db.Column(db.String())
     startDate = db.Column(db.DateTime())
     endDate = db.Column(db.DateTime())
 
@@ -35,18 +36,18 @@ class Modules(db.Model):
         return f'<Module: {self.name}>'
 
 
+# I have left this here as an example of how to set up a function to call with Ajax
 
+# @app.route('/get_all_modules', methods=['POST'])
+# def get_all_modules():
+#     print("Hello there we are getting all the users")
 
-@app.route('/get_all_modules', methods=['POST'])
-def get_all_modules():
-    print("Hello there we are getting all the users")
+#     modules = Modules.query.all()
+#     modules_list = [{'id': module.id, 'name': module.name} for module in modules]
 
-    modules = Modules.query.all()
-    modules_list = [{'id': module.id, 'name': module.name} for module in modules]
+#     print(modules_list)
 
-    print(modules_list)
-
-    return modules_list
+#     return modules_list
 
 
 @app.route('/')
