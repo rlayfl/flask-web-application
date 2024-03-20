@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 import sqlite3
 
-
 # Service Functions
 
 app = Flask(__name__)
@@ -12,6 +11,12 @@ def create_database_if_not_exists():
     conn = sqlite3.connect('kaplan_modules.db')
     #return conn
     conn.close()
+
+    response = {
+        "test": "Bananas"
+    }
+
+    return response
 
 @app.route('/')
 def index():
