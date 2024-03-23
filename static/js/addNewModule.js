@@ -54,7 +54,7 @@ $("#addNewModuleForm").on("submit", function(event) {
   
     $.ajax({
         type: "POST",
-        url: "/get_all_modules",
+        url: "/addNewModule",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             alert("Success")

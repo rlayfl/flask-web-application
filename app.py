@@ -50,9 +50,9 @@ class Modules(db.Model):
 #     return modules_list
     
 
-# @app.route("/addNewModule", methods=['POST'])
-# def add_new_module(addNewModuleJSONObject):
-#     print("Adding new module to the database")
+@app.route("/addNewModule", methods=['POST'])
+def add_new_module(addNewModuleJSONObject):
+    print("Adding new module to the database")
 
 
 
