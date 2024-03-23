@@ -48,6 +48,15 @@ class Modules(db.Model):
 #     print(modules_list)
 
 #     return modules_list
+    
+
+# @app.route("/addNewModule", methods=['POST'])
+# def add_new_module(addNewModuleJSONObject):
+#     print("Adding new module to the database")
+
+
+
+
 
 
 @app.route('/')

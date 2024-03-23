@@ -14,3 +14,13 @@ flask db migrate
 flask db upgrade
 
 Note: Again, the above statements might be slightly different in your setup. Make sure you run the statements in the folder containing app.py.
+
+
+
+
+For the form:
+
+Include jQuery from CDN:
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
