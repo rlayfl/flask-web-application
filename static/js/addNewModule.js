@@ -51,13 +51,15 @@ $("#addNewModuleForm").on("submit", function(event) {
     var JSONFormData = JSON.stringify(addNewModule)
   
     console.log("Testing database");
+
+    console.log(JSONFormData)
   
     $.ajax({
         type: "POST",
         url: "/addNewModule",
         contentType: "application/json; charset=utf-8",
         data: {
-            addNewModuleJSONObject: JSONFormData
+            JSONFormData: JSONFormData
         },
         success: function (data) {
             alert("Success")

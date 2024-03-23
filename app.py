@@ -1,6 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+
+import json
+import urllib.parse
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///kaplandb.sqlite3'
@@ -53,6 +56,20 @@ class Modules(db.Model):
 @app.route("/addNewModule", methods=['POST'])
 def add_new_module():
     print("Adding new module to the database")
+
+    print(str(request.data))
+
+    # Decode URL-encoded string
+    decoded_string = urllib.parse.unquote(request.data.decode())
+
+    # Extract JSON part
+    json_string = decoded_string.split('=', 1)[1]
+
+    # Parse JSON string to JSON object
+    json_object = json.loads(json_string)
+
+    # Print JSON object
+    print(json_object)
 
     return "Hello"
 
