@@ -51,8 +51,10 @@ class Modules(db.Model):
     
 
 @app.route("/addNewModule", methods=['POST'])
-def add_new_module(addNewModuleJSONObject):
+def add_new_module():
     print("Adding new module to the database")
+
+    return "Hello"
 
 
 

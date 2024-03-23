@@ -56,6 +56,9 @@ $("#addNewModuleForm").on("submit", function(event) {
         type: "POST",
         url: "/addNewModule",
         contentType: "application/json; charset=utf-8",
+        data: {
+            addNewModuleJSONObject: JSONFormData
+        },
         success: function (data) {
             alert("Success")
         },
