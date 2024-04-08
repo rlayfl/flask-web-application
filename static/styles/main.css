@@ -67,6 +67,16 @@ h6 {
   overflow-y: auto;
 }
 
+#indexContent {
+  transition: ease-in-out 0.3s;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 997;
+  overflow-y: auto;
+}
+
 #header * {
   transition: ease-in-out 0.3s;
 }
@@ -343,11 +353,9 @@ h6 {
 --------------------------------------------------------------*/
 section {
   overflow: hidden;
-  position: absolute;
   width: 100%;
   top: 140px;
   bottom: 100%;
-  opacity: 0;
   transition: ease-in-out 0.4s;
   z-index: 2;
 }
@@ -632,6 +640,14 @@ section .container {
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
+
+#resume {
+    position: relative;
+    height: 75vh;
+    display: flex;
+    align-items: center;  
+}
+
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
@@ -1003,6 +1019,14 @@ section .container {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+
+#contact {  
+  position: relative;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+}
+
 .contact .info-box {
   color: #444444;
   padding: 20px;

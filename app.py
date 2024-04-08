@@ -39,20 +39,6 @@ class Modules(db.Model):
 
     def __repr__(self):
         return f'<Module: {self.name}>'
-
-
-# I have left this here as an example of how to set up a function to call with Ajax
-
-# @app.route('/get_all_modules', methods=['POST'])
-# def get_all_modules():
-#     print("Hello there we are getting all the users")
-
-#     modules = Modules.query.all()
-#     modules_list = [{'id': module.id, 'name': module.name} for module in modules]
-
-#     print(modules_list)
-
-#     return modules_list
     
 
 @app.route("/addNewModule", methods=['POST'])
@@ -90,24 +76,17 @@ def add_new_module():
 
     return "Hello"
 
-
-
-
-
-
 @app.route('/')
 def index():
+    return render_template("index.html")
 
-    modules = Modules.query.all()
-    modules_list = [{'id': module.id, 'name': module.name} for module in modules]
+@app.route('/modules')
+def modules():    
+    return render_template("modules.html", modules = Modules.query.all())
 
-    print(modules_list)
-
-    return render_template("index.html", modules = Modules.query.all())
-
-@app.route('/About/<name>')
-def about_name(name):
-    return 'Hello %s!' % name
+@app.route('/addNewModule')
+def addNewModule():
+    return render_template("addNewModule.html")
 
 if __name__ == '__main__':
     app.run(debug = True)

@@ -1,0 +1,40 @@
+{% extends "template.html" %}
+
+{% block content %}
+
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Syllabus</h2>
+      <p>Check our Modules</p>
+    </div>
+
+    <div class="row">
+
+      {% for module in modules %}
+
+      <div class="col-lg-6">
+        <h3 class="resume-title">{{ module.code }} - {{ module.name }}</h3>
+        <div class="resume-item pb-0">
+          <h4>Alice Barkley</h4>
+          <p><em>{{ module.description }}</em></p>
+          <p>
+          <ul>
+            <li>Portland par 127,Orlando, FL</li>
+            <li>(123) 456-7891</li>
+            <li>alice.barkley@example.com</li>
+          </ul>
+          </p>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- End Resume Section -->
+</section>
+
+{% endblock %}
